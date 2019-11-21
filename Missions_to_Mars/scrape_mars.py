@@ -11,12 +11,14 @@ import api_keys
 
 def init_browser():
     # @NOTE: Replace the path with your actual path to the chromedriver
-    executable_path = {"executable_path": "/usr/local/bin/chromedriver"}
-    return Browser("chrome", **executable_path, headless=False)
+    executable_path = {'executable_path': 'chromedriver.exe'}
+    return Browser("chrome", **executable_path, headless=True)
 
 def scrape():
     browser = init_browser()
-    mars = {}
+    mars = []
+    data = {}
+    
     # News URL
     news_url = "https://mars.nasa.gov/news/"
     browser.visit(news_url)
@@ -25,9 +27,10 @@ def scrape():
     article = soup.find("div", class_='list_text')
     # News Title
     news_title = article.find("div", class_="content_title").text
+    #news_title = soup.find_all('div', class_='content_title')[0].find('a').text.strip()
     news_p = article.find("div", class_="article_teaser_body").text
-    mars['news_title'] = news_title
-    mars ['news_paragraph'] = news_p
+    data['news_title'] = news_title
+    data['news_paragraph'] = news_p
 
     # Feutured Image of Mars
     url = "https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
@@ -38,7 +41,7 @@ def scrape():
     # fetching the image
     featured_image = featured_image["src"]
     featured_image_url = "https://www.jpl.nasa.gov" + featured_image
-    mars['featured_image'] = featured_image_url
+    data['featured_image'] = featured_image_url
 
     # Mars Weather
     # Setup Tweepy API Authentication
@@ -49,7 +52,7 @@ def scrape():
     end_point = "MarsWxReport"
     tweet = api.user_timeline(end_point, count=1)
     mars_weather = ((tweet)[0]['text'])
-    mars ['mars_weather'] = mars_weather
+    data['mars_weather'] = mars_weather
 
     # Mars Facts
     facts_url = "https://space-facts.com/mars/"
@@ -60,7 +63,7 @@ def scrape():
     #mars_df = mars_df.set_index("Description")
     mars_facts_html = mars_df.to_html(index=True, header=True)
     mars_facts_html = mars_facts_html.replace('\n', '')
-    mars['mars_facts'] = mars_facts_html
+    data['mars_facts'] = mars_facts_html
 
     # Mars Hemispheres
     hemi_spheres_url = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
@@ -71,6 +74,7 @@ def scrape():
     products = soup.find("div", class_="result-list")
     hemispheres = products.find_all("div", class_="item")
     mars_hmspr = []
+    n = 1
     for hemisphere in hemispheres:
         title = hemisphere.find("h3").text
         title = title.replace("Enhanced", "")
@@ -81,13 +85,13 @@ def scrape():
         soup = bs(html, "html.parser")
         dt = soup.find("div", class_="downloads")
         image_url = dt.find("a")["href"]
-        dict_ = {"title": title, "img_url": image_url}
-        mars_hmspr.append(dict_)
-    mars['Mars_Hemisphere']: mars_hmspr
+        dict_ = {f"title_{n}": title, f"img_url_{n}": image_url}
+        n +=1
+        #mars_hmspr.append(dict_)
+        mars.append(dict_)
+    mars.append(data)
 
     # Close the browser after scraping
     browser.quit()
-
+    print(mars)
     return mars
-
-

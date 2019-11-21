@@ -27,7 +27,9 @@ def scrape():
     Mars_data = scrape_mars.scrape()
 
     # Update the Mongo database using update and upsert=True
-    mongo.db.collection.update({}, Mars_data, upsert=True)
+    Mars_dict = dict((key,d[key]) for d in Mars_data for key in d)  
+    Mars.update({}, Mars_dict, upsert=True)
+        #mongo.db..update({}, d, upsert=True)
 
     # Redirect back to home page
     return redirect("/")

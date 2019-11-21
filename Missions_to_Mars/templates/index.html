@@ -12,7 +12,7 @@
 
 <body>
     <div class="container text-center">
-        <h1 class="jumbotron">Mission to Mars<br><a href="../scrape" class="btn btn-primary">Scrape New Data</a></h1>
+        <h1 class="jumbotron">Mission to Mars<br><a href="/scrape" class="btn btn-primary">Scrape New Data</a></h1>
 
         <div>
             <div class="container">
@@ -22,30 +22,34 @@
                         <div class="card-body">
                             <h2>Latest News</h2>
                             <h4 class="card-title">{{ Mars_data.news_title }}</h4>
-                            <h6 class="card-subtitle mb-2 text-muted">{{ Mars_data.news_p }}</h6>
-                            <p class="card-text">Search <a href="https://mars.nasa.gov/news">IMDB</a> for more info!</p>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ Mars_data.news_paragraph }}</h6>
+                            <p class="card-text">Search <a href="https://mars.nasa.gov/news">Nasa Latest News</a> for more info!</p>
                         </div>
-
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-8 card">
                         <div class="card-body">
                             <h2>Featured Image</h2>
-                            <a class="lightbox" href="../img/image1.jpg">
-                                <img class="img-fluid image scale-on-hover" src={{Mars_data.image}}>
+                            <a class="lightbox" href="../img/featured_image.jpg">
+                                <img class="img-fluid image scale-on-hover" src={{Mars_data.featured_image}}>
                         </div>
                     </div>
                     <div class="col-4 card">
                         <div class="card-body">
                             <h2>Current Weather on Mars</h2>
-                            <h4 class="card-title">{{ Mars_data.mars_weather }}</h4>
+                            <h4 class="card-title"></h4>
+                            <h6>{{ Mars_data.mars_weather }}</h6>
                         </div>
                         <div class="card-body">
                             <h2>Fatcs about Mars</h2>
-                            <h4 class="card-title">{{ Mars_data.mars_fact }}</h4>
-                            <h6 class="card-subtitle mb-2 text-muted">Is a top five favorite movie</h6>
-                            <p class="card-text">Search <a href="https://www.imdb.com/">IMDB</a> for more info!</p>
+                            <h4 class="card-title">
+                            </h4>
+                            <table class="table table-sm table-striped table-bordered table-responsive-lg">
+
+                                {{Mars_data.mars_facts}}
+                            </table>
+                            <p class="card-text">Search <a href="https://space-facts.com/mars/">Mars Facts</a> for more info!</p>
                         </div>
                     </div>
                 </div>
@@ -56,28 +60,32 @@
                             <h2>Mars Hemisphere</h2>
                         </div>
                         <div class="row">
-                            <!-- {{% for img in Mars_Hemisphere %}} -->
                             <div class="col-md-6 col-lg-6 item">
                                 <a class="lightbox" href="../img/image1.jpg">
-                                    <img class="img-fluid image scale-on-hover" src={{img}}>
+                                    <img class="img-fluid image scale-on-hover" src="{{Mars_data.img_url_1}}">
                                 </a>
+                                <h2>{{ Mars_data.title_1 }}</h2>
                             </div>
                             <div class="col-md-6 col-lg-6 item">
                                 <a class="lightbox" href="../img/image2.jpg">
-                                    <img class="img-fluid image scale-on-hover" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(98).jpg">
+                                    <img class="img-fluid image scale-on-hover" src="{{ Mars_data.img_url_2}}">
                                 </a>
+                                <h2>{{ Mars_data.title_2 }}</h2>
                             </div>
                             <div class="col-md-6 col-lg-6 item">
                                 <a class="lightbox" href="../img/image3.jpg">
-                                    <img class="img-fluid image scale-on-hover" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(98).jpg">
+                                    <img class="img-fluid image scale-on-hover" src="{{ Mars_data.img_url_3}}">
+
                                 </a>
+                                <h2>{{ Mars_data.title_3 }}</h2>
                             </div>
                             <div class="col-md-6 col-lg-6 item">
                                 <a class="lightbox" href="../img/image4.jpg">
-                                    <img class="img-fluid image scale-on-hover" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(98).jpg">
+                                    <img class="img-fluid image scale-on-hover" src="{{ Mars_data.img_url_4}}">
                                 </a>
+                                <h2>{{ Mars_data.title_4 }}</h2>
                             </div>
-                            <!-- {{% end for %}} -->
+
                         </div>
                     </div>
                 </section>
