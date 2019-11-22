@@ -60,9 +60,9 @@ def scrape():
     mars_dt = pd.read_html(facts_url)[0]
     mars_df = pd.DataFrame(mars_dt)
     mars_df.columns = ["Description", "Value"]
-    #mars_df = mars_df.set_index("Description")
-    mars_facts_html = mars_df.to_html(index=True, header=True)
-    mars_facts_html = mars_facts_html.replace('\n', '')
+    mars_df = mars_df.set_index("Description")
+    mars_facts_html = mars_df.to_html(index=True, header=True, justify='left')
+    #mars_facts_html = mars_facts_html.replace('\n', '')
     data['mars_facts'] = mars_facts_html
 
     # Mars Hemispheres

@@ -23,6 +23,10 @@
     transition: 0.4s;
 }
 
+.card-title {
+    float: left;
+}
+
 .gallery-block.grid-gallery .item {
     margin-bottom: 20px;
 }
