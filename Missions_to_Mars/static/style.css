@@ -1,3 +1,22 @@
+body {
+    background-color: black;
+    text-align: center;
+    color: white;
+}
+
+.jumbotron {
+    background-image: url(Images/pia21635.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% !important;
+    background-size: contain;
+    color: white;
+}
+
+.card {
+    background-color: black;
+    color: white;
+}
+
 .gallery-block.grid-gallery {
     padding-bottom: 60px;
     padding-top: 60px;
@@ -24,18 +43,37 @@
 }
 
 
-/* .card-title,
-.card-text {
-    float: left;
+/* .lightbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
 } */
 
-
-/* .card-body {
-    float: left;
-} */
+.card {
+    margin-bottom: 30px;
+}
 
 .gallery-block.grid-gallery .item {
     margin-bottom: 20px;
+}
+
+footer {
+    background-color: #f4f5f8;
+    border-top-style: solid;
+    /* border-top: 5px solid #; */
+    border-top-width: 5px;
+    border-top-color: #00b0b0;
+    color: rgb(10, 10, 10);
+    min-height: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-align: center;
+    /* position: fixed; */
+    /* left: 0; */
+    bottom: 0;
+    /* width: 100%; */
+    padding-top: 15px;
 }
 
 @media (min-width: 576px) {

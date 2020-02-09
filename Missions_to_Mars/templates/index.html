@@ -29,29 +29,29 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-8 card item">
-                        <div class="card-body">
-                            <h2>Featured Image</h2>
-                            <a class="lightbox" href="../img/featured_image.jpg">
-                                <img class="img-fluid image scale-on-hover" src={{Mars_data.featured_image}}></a>
-                        </div>
+                    <div class="col-8">
+                        <!-- <div class="card-body"> -->
+                        <h2>Featured Image</h2>
+                        <a class="lightbox" href="../img/featured_image.jpg">
+                            <img class="img-fluid image scale-on-hover" src={{Mars_data.featured_image}}></a>
+                        <!-- </div> -->
                     </div>
-                    <div class="col-4 card">
-                        <div class="card-body">
-                            <h2>Current Weather on Mars</h2>
-                            <h4 class="card-title"></h4>
-                            <h6>{{ Mars_data.mars_weather }}</h6>
-                        </div>
-                        <div class="card-body">
-                            <h2>Fatcs about Mars</h2>
-                            <h4 class="card-title">
-                            </h4>
+                    <div class="col-4">
+                        <!-- <div class="card-body"> -->
+                        <h2>Current Weather on Mars</h2>
+                        <!-- <h4 class="card-title"></h4> -->
+                        <h6>{{ Mars_data.mars_weather }}</h6>
+                        <!-- </div> -->
+                        <!-- <div class="card-body"> -->
+                        <h2>Fatcs about Mars</h2>
+                        <!-- <h4 class="card-title">
+                        </h4> -->
 
-                            <table class="table table-sm table-striped table-bordered table-responsive-lg">
-                                {{Mars_data.mars_facts | safe}}
-                            </table>
-                            <p class="card-text">Search <a href="https://space-facts.com/mars/">Mars Facts</a> for more info!</p>
-                        </div>
+                        <table class="table table-sm table-striped table-bordered table-responsive-lg">
+                            {{Mars_data.mars_facts | safe}}
+                        </table>
+                        <p class="card-text">Search <a href="https://space-facts.com/mars/">Mars Facts</a> for more info!</p>
+                        <!-- </div> -->
                     </div>
                 </div>
 
@@ -100,7 +100,9 @@
         </div>
 
     </div>
-
+    <footer>
+        <div class="footer col-12">&copy; Copyright Cheikh S.M 2019. All Rights Reserved.</div>
+    </footer>
 </body>
 
 </html>

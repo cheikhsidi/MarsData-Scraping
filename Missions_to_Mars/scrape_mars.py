@@ -7,6 +7,7 @@ import datetime as dt
 from splinter import Browser
 import tweepy
 import api_keys
+# from selenium.webdriver.support.ui import WebDriverWait
 
 
 def init_browser():
@@ -18,7 +19,7 @@ def scrape():
     browser = init_browser()
     mars = []
     data = {}
-    
+    # wait = WebDriverWait(browser, 5)
     # News URL
     news_url = "https://mars.nasa.gov/news/"
     browser.visit(news_url)
@@ -93,5 +94,4 @@ def scrape():
 
     # Close the browser after scraping
     browser.quit()
-    print(mars)
     return mars
