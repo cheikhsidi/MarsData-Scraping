@@ -23,9 +23,16 @@
     transition: 0.4s;
 }
 
-.card-title {
+
+/* .card-title,
+.card-text {
     float: left;
-}
+} */
+
+
+/* .card-body {
+    float: left;
+} */
 
 .gallery-block.grid-gallery .item {
     margin-bottom: 20px;

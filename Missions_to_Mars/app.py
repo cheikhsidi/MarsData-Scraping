@@ -34,8 +34,5 @@ def index():
     # Return template and data
     return render_template("index.html", Mars_data=Mars_data)
 
-
-
-
 if __name__ == "__main__":
     app.run(debug=True)
