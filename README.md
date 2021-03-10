@@ -1,1 +1,1 @@
-# Mars Palnet Data colelction using python scraping libraries BeautifulSoup.
+# Mars Palnet Data collection using python scraping libraries BeautifulSoup.
